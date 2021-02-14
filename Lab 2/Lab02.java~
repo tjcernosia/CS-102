@@ -13,18 +13,7 @@ public class Lab02{
     //https://docs.oracle.com/javase/8/docs/api/java/util/Random.html
     private static final Random rand = new Random();
 
-
-
-    //Start with Problem 2.1 here!
-    //public static int[] arrayConcat(....
-
-
-
-
-
  public static void main(String[] args){
-
-        System.out.println("Hello World! Your Java is working!");
 
         //Below are the test cases provided to you in the lab writeup.
         //They are NOT SUFFICIENT!  You must add tests of your own
@@ -33,36 +22,148 @@ public class Lab02{
 
 
         //*****  2.1 Tests  *****
-        //System.out.println("**Test Array Concat**");
-        //int[] arr1 = {7, 3, 14};
-        //int[] arr2 = {2, 3, 1};
+        System.out.println("**Test Array Concat**");
+        int[] arr1 = {7, 3, 14};
+        int[] arr2 = {2, 3, 1};
 
-        //int[] arr1 = {5, 1, 5};
-        //int[] arr2 = {2, 3, 1};
-
-        //System.out.print(Arrays.toString(arr1) + " and " + Arrays.toString(arr2));
-        //System.out.println("--> " + Arrays.toString(Lab02.arrayConcat(arr1, arr2)));
-
-
+        System.out.print("arr1 + arr2: ");
+        printIntArr(arrayConcat(arr1,arr2));
+        System.out.println();
 
 
         //*****  2.2 Tests  *****
-        //System.out.println("**Test Only Firsts **");
-        //String[] arr = {"a", "b", "a", "c", "b"};
-        //String[] arr = {"cat", "dog", "CaT", "dog", "FROG"};
-
-        //Finish the rest!
-
-
-
+        System.out.println("**Test Only Firsts **");
+        String[] arr3 = {"a", "b", "a", "c", "b"};
+        String[] arr4 = {"cat", "dog", "CaT", "dog", "FROG"};
+        printStringArr(onlyFirsts(arr4));
+        System.out.println();
 
         //*****  2.3 Tests  *****
-        //System.out.println("**Test Treasure Map **");
-
+        System.out.println("**Test Treasure Map **");
+        
+        for(int i = 0; i < 10; i++){
+        		int x = rand.nextInt(10);
+        		int y = rand.nextInt(10);
+        		int n = rand.nextInt();
+        }
+        printMap(buryTreasure(createMap(5,5),5));
+        
         //Replicate the test from the writeup
         //and add more of your own!
-
+    }
+    
+    public static char[][] copyCharArr(char[][] a){
+    		char[][] n = new char[a.length][a[0].length];
+    		for(int r = 0; r < a.length; r++){
+    			for(int c = 0; c < a[0].length; c++){
+    				n[r][c] = a[r][c];
+    			}
+    		}
+    		return n;
+    }
+    
+    public static void printIntArr(int[] a){
+    		System.out.print("[");
+    		for(int i = 0; i < a.length; i++) System.out.print(a[i] + ", ");
+    		System.out.print("]");
+    }
+    
+    public static void printStringArr(String[] a){
+    		System.out.print("[");
+    		for(int i = 0; i < a.length; i++) System.out.print(a[i] + ", ");
+    		System.out.print("]");
+    }
+    
+    public static int[] arrayConcat(int[] a, int[] b){
+    		//make new array of sum of lengths of a and b
+    		int[] r = new int[a.length + b.length];
+    		//loop through both parameters to add them to new array
+    		for(int i = 0; i < r.length; i++){
+    			//make sure we're pulling values from the right array
+    			if (i < a.length){ r[i] = a[i];}
+    			else r[i] = b[i - a.length];
+    		}
+    		return r;
+    }
+    
+    public static int countDupes(String[] a){
+    		//when x == i (happens every time second loop iterates) it will always report it as a duplicate
+    		//can just initialize as -a.length
+    		int duplicates = -a.length;
+    		//check for duplicates
+    		for(int i = 0; i < a.length; i++){
+    			for(int x = i; x < a.length; x++){
+    				if (a[i].toLowerCase().equals(a[x].toLowerCase())) duplicates++;
+    			}
+    		}
+    		return duplicates;
+    }
+    
+    public static boolean contains(String[] a, String b){
+    		for(int i = 0; i < a.length; i++){
+    			//makes sure a[i] isn't null so that .toLowerCase() doesn't throw nullpointer 
+    			if(a[i] != null && b.toLowerCase().equals(a[i].toLowerCase())) return true;	
+    		}
+    		//will only reach this return statement if array doesn't contain b
+    		return false;
+    }
+    
+    public static String[] onlyFirsts(String[] a){
+    		//make new array of correct length
+    		String[] r = new String[a.length - countDupes(a)];
+    		//create int to store what index of the return array we're on
+    		int index = 0;
+    		for(int i = 0; i < a.length; i++){
+    			//we only advance index if a[i] isn't already inside of it using helper function contains()
+    			if (!contains(r, a[i])){
+    				r[index] = a[i];
+    				index++;
+    			}
+    		}
+    		return r;
     }
 
-
+    public static char[][] createMap(int r, int c){
+    		// check to see if either variable is invalid
+    		if(r < 1 || c < 1) return new char[0][0];
+    		//create new 'map' of correct dimensions
+    		char[][] map = new char[r][c];
+    		//first loop iterates over rows second over columns
+    		for(int i = 0; i < map.length; i++){
+    			for(int x = 0; x < map[0].length; x++){
+    				//set each index to appropriate value
+    				map[i][x] = MAP_BLANK;
+    			}
+    		}
+    		return map;
+    }
+    
+    public static void printMap(char[][] a){
+    		//print contents of row on single line
+    		for(int r = 0; r < a.length; r++){
+    			for(int c = 0; c < a[0].length; c++){
+    				System.out.print(a[r][c]);
+    			}
+    			//line break before printing next row
+    			System.out.println();
+    		}
+    }
+    
+    public static char[][] buryTreasure(char[][] map, int n){
+    		//make a new array to contain paramater array
+    		char[][] r = copyCharArr(map);
+    		for(int i = 0; i < n; i++){
+    			int x = rand.nextInt(map.length); 
+    			int y = rand.nextInt(map[0].length);
+    			//check to see if chosen coordinates already contain '$'
+    			//i wont increment until it finds an 'empty' space
+    			if (r[x][y] != MAP_TREASURE){
+    				r[x][y] = MAP_TREASURE;	
+    			} else {
+    				i--;
+    			}
+    		}
+    		//return updated map
+    		return r; 
+    }
 }
