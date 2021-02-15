@@ -65,7 +65,7 @@ public class Lab02{
         //*****  2.3 Tests  *****
         System.out.println("**Test Treasure Map **");
         //generate 10 random treasure maps with different x, y, and n values
-        System.out.println("test bulk randomly generated treasure maps");
+        System.out.println("bulk test randomly generated treasure maps");
         for(int i = 0; i < 10; i++){
         		int x = rand.nextInt(9)+1;
         		int y = rand.nextInt(9)+1;
@@ -78,6 +78,11 @@ public class Lab02{
         System.out.println("\nedgecase: treasure count is greater than dimensions of map");
         System.out.println("rows: 5 columns: 5 treasure: 110");
         printMap(buryTreasure(createMap(5,5),110));
+        System.out.println();
+        
+        System.out.println("\nedgecase: treasure count is less than 0");
+        System.out.println("rows: 5 columns: 5 treasure: -5");
+        printMap(buryTreasure(createMap(5,5),-5));
         System.out.println();
         
         System.out.println("\nedgecase: one or more dimensions is less than one");
@@ -188,9 +193,10 @@ public class Lab02{
     public static char[][] buryTreasure(char[][] map, int n){
     		//make sure the map isn't broken
     		if(map.length < 1 || map[0].length < 1) return map;
-    		//make a new array to contain paramater array
+    		if(n < 0 || n > map.length * map[0].length) return map; 
+    		//make a new array to contain parameter array
     		char[][] r = copyCharArr(map);
-    		for(int i = 0; i < n && i < map.length * map[0].length; i++){
+    		for(int i = 0; i < n; i++){
     			int x = rand.nextInt(map.length); 
     			int y = rand.nextInt(map[0].length);
     			//check to see if chosen coordinates already contain '$'
