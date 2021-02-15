@@ -23,36 +23,77 @@ public class Lab02{
 
         //*****  2.1 Tests  *****
         System.out.println("**Test Array Concat**");
+        System.out.println("edgecase: one or more empty arrays\n");
         int[] arr1 = {7, 3, 14};
-        int[] arr2 = {2, 3, 1};
+        int[] arr2 = {};
 
-        System.out.print("arr1 + arr2: ");
+        System.out.print("arr1: "); printIntArr(arr1); 
+        System.out.print(" arr2: "); printIntArr(arr2); 
+        System.out.println("\noutput: ");
         printIntArr(arrayConcat(arr1,arr2));
-        System.out.println();
+        System.out.println("\n");
+        
+        int[] arr6 = {};
+        int[] arr5 = {};
+        
+        System.out.print("arr1: "); printIntArr(arr6); 
+        System.out.print(" arr5: "); printIntArr(arr5); 
+        System.out.println("\noutput: ");
+        printIntArr(arrayConcat(arr6,arr5));
+        System.out.println("\n");
 
 
         //*****  2.2 Tests  *****
         System.out.println("**Test Only Firsts **");
         String[] arr3 = {"a", "b", "a", "c", "b"};
         String[] arr4 = {"cat", "dog", "CaT", "dog", "FROG"};
+        
+        //test arr3
+        System.out.print("input (general test): \n"); 
+        printStringArr(arr3); 
+        System.out.println("\noutput: ");
+        printStringArr(onlyFirsts(arr3));
+        System.out.println("\n");
+        
+        //test arr4
+        System.out.print("input (different capitalization): \n"); 
+        printStringArr(arr4); 
+        System.out.println("\noutput: ");
         printStringArr(onlyFirsts(arr4));
-        System.out.println();
+        System.out.println("\n");
 
         //*****  2.3 Tests  *****
         System.out.println("**Test Treasure Map **");
-        
+        //generate 10 random treasure maps with different x, y, and n values
+        System.out.println("bulk test randomly generated treasure maps");
         for(int i = 0; i < 10; i++){
-        		int x = rand.nextInt(10);
-        		int y = rand.nextInt(10);
-        		int n = rand.nextInt();
+        		int x = rand.nextInt(9)+1;
+        		int y = rand.nextInt(9)+1;
+        		int n = rand.nextInt(x * y);
+        		System.out.println("rows: " + x + " columns: " + y + " treasure: " + n);
+        		printMap(buryTreasure(createMap(x,y),n));
+        		System.out.println();
         }
-        printMap(buryTreasure(createMap(5,5),5));
         
+        System.out.println("\nedgecase: treasure count is greater than dimensions of map");
+        System.out.println("rows: 5 columns: 5 treasure: 110");
+        printMap(buryTreasure(createMap(5,5),110));
+        System.out.println();
+        
+        System.out.println("\nedgecase: treasure count is less than 0");
+        System.out.println("rows: 5 columns: 5 treasure: -5");
+        printMap(buryTreasure(createMap(5,5),-5));
+        System.out.println();
+        
+        System.out.println("\nedgecase: one or more dimensions is less than one");
+        System.out.println("rows: 0 columns: 1 treasure: 110");
+        printMap(buryTreasure(createMap(0,1),110));
         //Replicate the test from the writeup
         //and add more of your own!
     }
     
     public static char[][] copyCharArr(char[][] a){
+    		if(a.length < 1 || a[0].length < 1) return a;
     		char[][] n = new char[a.length][a[0].length];
     		for(int r = 0; r < a.length; r++){
     			for(int c = 0; c < a[0].length; c++){
@@ -150,7 +191,10 @@ public class Lab02{
     }
     
     public static char[][] buryTreasure(char[][] map, int n){
-    		//make a new array to contain paramater array
+    		//make sure the map isn't broken
+    		if(map.length < 1 || map[0].length < 1) return map;
+    		if(n < 0 || n > map.length * map[0].length) return map; 
+    		//make a new array to contain parameter array
     		char[][] r = copyCharArr(map);
     		for(int i = 0; i < n; i++){
     			int x = rand.nextInt(map.length); 

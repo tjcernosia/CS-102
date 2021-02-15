@@ -23,6 +23,17 @@ public class Lab02{
 
         //*****  2.1 Tests  *****
         System.out.println("**Test Array Concat**");
+        
+        System.out.println("general case: \n");
+        int[] arr7 = {18, 0, 999999};
+        int[] arr8 = {140,12,4124,1523512,51,25,125};
+        
+        System.out.print("arr1: "); printIntArr(arr7); 
+        System.out.print(" arr2: "); printIntArr(arr8); 
+        System.out.println("\noutput: ");
+        printIntArr(arrayConcat(arr7,arr8));
+        System.out.println("\n");
+        
         System.out.println("edgecase: one or more empty arrays\n");
         int[] arr1 = {7, 3, 14};
         int[] arr2 = {};
