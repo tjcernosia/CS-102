@@ -58,6 +58,7 @@ public class Lab02{
         System.out.println("**Test Only Firsts **");
         String[] arr3 = {"a", "b", "a", "c", "b"};
         String[] arr4 = {"cat", "dog", "CaT", "dog", "FROG"};
+        String[] empty = {};
         
         //test arr3
         System.out.print("input (general test): \n"); 
@@ -72,6 +73,13 @@ public class Lab02{
         System.out.println("\noutput: ");
         printStringArr(onlyFirsts(arr4));
         System.out.println("\n");
+        
+        System.out.print("input (empty array): \n"); 
+        printStringArr(empty); 
+        System.out.println("\noutput: ");
+        printStringArr(onlyFirsts(empty));
+        System.out.println("\n");
+
 
         //*****  2.3 Tests  *****
         System.out.println("**Test Treasure Map **");
@@ -194,7 +202,7 @@ public class Lab02{
     		//print contents of row on single line
     		for(int r = 0; r < a.length; r++){
     			for(int c = 0; c < a[0].length; c++){
-    				System.out.print(a[r][c]);
+    				System.out.print(a[r][c] + " ");
     			}
     			//line break before printing next row
     			System.out.println();
