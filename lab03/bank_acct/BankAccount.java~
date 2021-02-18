@@ -1,0 +1,35 @@
+// Each BankAccount object represents one user's account
+// information including name and balance of money.
+
+public class BonkAccount {
+
+
+     private String name;
+     private double balance;
+
+
+
+
+
+
+     public void deposit(double amount) {
+          balance = balance + amount;
+     }
+
+
+
+     public void withdraw(double amount) {
+          balance = balance - amount;
+     }
+
+
+
+     public double getBalance(){
+       return balance;
+     }
+
+     public String getName(){
+       return name;
+     }
+
+}

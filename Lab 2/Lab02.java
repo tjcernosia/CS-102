@@ -2,6 +2,8 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Lab02{
+	
+	//THOMAS AND KIERAN 
 
     //Characters that represent the blank and 'treasure' spots
     //on a 'map' (abstracted as a 2D char array).

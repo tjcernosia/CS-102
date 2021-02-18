@@ -1,0 +1,75 @@
+/*
+ Lab 03
+ 
+ This client program uses Point objects.
+ Expected output is:
+ p0 is (0, 0)
+ p1 is (8, 2)
+ p2 is (4, 3)
+ p1's distance from origin is 8.246211251235321
+*/
+
+public class PointClient {
+     
+     public static void main(String[] args) {
+          
+          //**** 2.1.1 Getting Started ****
+          // construct a default Point object named p0
+          Point p0 = new Point();
+          // print p0
+          System.out.println("p0 is: " + p0);
+          //What do you think will be printed by the above?
+          
+          
+          
+          //**** 2.1.2: Translate Coordinates****
+          //Test you solution for the translateCoords method below, by calling it on
+          //p0 with the arguments 10 and 30, then print p0.
+          //Does the output make sense?
+          p0.translateCoords(10,30);
+          
+          
+          
+          //**** 2.1.3: Retrieve Individual Coords****
+          //Uncomment the print statements below and try to compile/run
+          //fix the issue without modifying Point.java!
+         
+          System.out.println("p0's x coord is: " + p0.getX());
+          System.out.println("p0's y coord is: " + p0.getY());
+          
+          System.out.println(p0.distanceFromOrigin());
+          System.out.println(p0.quadrant());
+          p0.flip();
+          
+          System.out.println("p0's x coord is: " + p0.getX());
+          System.out.println("p0's y coord is: " + p0.getY());
+          
+          System.out.println(p0.distanceFromOrigin());
+          System.out.println(p0.quadrant());
+          
+          
+          //**** 2.1.4: Two Argument Constructor ****
+          //create two Point objects, p1 at (8, 2) and p2 at (4, 3)
+          //Print them to verify their coordinates!
+          
+          //....
+          //System.out.println("p1 is " + ....)'
+          //System.out.println("p2 is " + ....)'
+          
+          
+          
+          
+          
+          //**** 2.1.5: Distance from Origin ****
+          /*
+           double dist = ....  // CHANGE
+           System.out.println("p1's distance from origin is " + dist);
+           */
+          
+   
+          
+          //**** 2.2.1 and 2.2.2 ****
+          //Create test cases to check the quadrant and flip functions
+          //Test each function as you implement them!
+     }
+}

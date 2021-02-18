@@ -23,6 +23,17 @@ public class Lab02{
 
         //*****  2.1 Tests  *****
         System.out.println("**Test Array Concat**");
+        
+        System.out.println("general case: \n");
+        int[] arr7 = {18, 0, 999999};
+        int[] arr8 = {140,12,4124,1523512,51,25,125};
+        
+        System.out.print("arr1: "); printIntArr(arr7); 
+        System.out.print(" arr2: "); printIntArr(arr8); 
+        System.out.println("\noutput: ");
+        printIntArr(arrayConcat(arr7,arr8));
+        System.out.println("\n");
+        
         System.out.println("edgecase: one or more empty arrays\n");
         int[] arr1 = {7, 3, 14};
         int[] arr2 = {};
@@ -47,6 +58,7 @@ public class Lab02{
         System.out.println("**Test Only Firsts **");
         String[] arr3 = {"a", "b", "a", "c", "b"};
         String[] arr4 = {"cat", "dog", "CaT", "dog", "FROG"};
+        String[] empty = {};
         
         //test arr3
         System.out.print("input (general test): \n"); 
@@ -61,6 +73,13 @@ public class Lab02{
         System.out.println("\noutput: ");
         printStringArr(onlyFirsts(arr4));
         System.out.println("\n");
+        
+        System.out.print("input (empty array): \n"); 
+        printStringArr(empty); 
+        System.out.println("\noutput: ");
+        printStringArr(onlyFirsts(empty));
+        System.out.println("\n");
+
 
         //*****  2.3 Tests  *****
         System.out.println("**Test Treasure Map **");
@@ -183,7 +202,7 @@ public class Lab02{
     		//print contents of row on single line
     		for(int r = 0; r < a.length; r++){
     			for(int c = 0; c < a[0].length; c++){
-    				System.out.print(a[r][c]);
+    				System.out.print(a[r][c] + " ");
     			}
     			//line break before printing next row
     			System.out.println();
