@@ -101,6 +101,7 @@ public class BankAccountClient {
     	System.out.println(receive + "\n\n");
     	
     	// test: incorrect transfer money
+    	// transferMoney() will not update any values if deposit() or withdraw() fail
     	BankAccount sendBad = new BankAccount("Thomas Cernosia");
     	BankAccount receiveBad = new BankAccount("Prof. Fourquet");
     	

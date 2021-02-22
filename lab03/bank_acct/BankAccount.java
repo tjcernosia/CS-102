@@ -3,34 +3,27 @@
 
 public class BankAccount {
 
-	 public final String DEFAULT_NAME = "DEFAULT NAME";
-	 public final int MIN_BALANCE = 5;
-	 public final int MIN_LENGTH = 5;
+	 public static final String DEFAULT_NAME = "DEFAULT NAME";
+	 public static final int MIN_BALANCE = 5;
+	 public static final int MIN_LENGTH = 5;
 	 
      private String name;
      private double balance;
      private int minBalance;
      
      public BankAccount(){
-     	 name = DEFAULT_NAME;
-     	 minBalance = 5;
+     	 this(DEFAULT_NAME, MIN_BALANCE);
      }
 
      public BankAccount(String name){
-     	 //by default sets instance variable equal to argument
-     	 this.name = name;
-     	 //if name is too short or doesn't contain first and last name, overrides with default name
-     	 if (name.length() < MIN_LENGTH || name.indexOf(" ") == -1){
-     	 	 this.name = DEFAULT_NAME;
-     	 }
-     	 minBalance = MIN_BALANCE;
+     	 this(name, MIN_BALANCE);
      }
      
      public BankAccount(String name, int minBalance){
      	 //by default sets instance variable equal to argument
      	 this.name = name;
      	 //if name is too short or doesn't contain first and last name, overrides with default name
-     	 if (name.length() < MIN_LENGTH || name.indexOf(" ") == -1){
+     	 if (name.length() < MIN_LENGTH || !name.contains(" ")){
      	 	 this.name = DEFAULT_NAME;
      	 }
      	 this.minBalance = minBalance;

@@ -61,6 +61,7 @@ public class Lab02{
         String[] arr3 = {"a", "b", "a", "c", "b"};
         String[] arr4 = {"cat", "dog", "CaT", "dog", "FROG"};
         String[] empty = {};
+        String[] broken = {"x","x","x","x","x","b"};
         
         //test arr3
         System.out.print("input (general test): \n"); 
@@ -111,6 +112,7 @@ public class Lab02{
         printMap(buryTreasure(createMap(0,1),110));
         //Replicate the test from the writeup
         //and add more of your own!
+        
     }
     
     public static char[][] copyCharArr(char[][] a){
