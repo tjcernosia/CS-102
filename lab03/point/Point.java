@@ -40,33 +40,39 @@ public class Point {
       public double distanceFromOrigin() {
       	   return Math.sqrt(x * x + y * y);           
       }
-      
-
-
-
-
-     
+           
       //*** For 2.2.1 ***
       //Implement the quadrant() method.
       //Returns which quadrant of the xy-plane this Point object falls in
       public int quadrant(){
+      	  //didnt like this first method declaration because it's not readable at all
+      	  /*
+      	  //check if they're on axes
       	  if (x == 0 || y == 0) return 0;
+      	  //if x * y > 0 then it must be either quadrant 1 or 3
       	  if (x * y > 0){
+      	  	  // if it's not quadrant 3 it must be quadrant 1
       	  	  if (x < 0) return 3; 
       	  	  return 1;
       	  }
+      	  //same but repeated
       	  if (x < 0) return 2;
       	  return 4;
+      	  */
+      	  //can't figure out a way to cleaner, more readable way to find quadrant 
+      	  if(x > 0 && y > 0) return 1; 
+      	  if(x < 0 && y > 0) return 2; 
+      	  if(x < 0 && y < 0) return 3; 
+      	  if(x > 0 && y < 0) return 4;
+      	  return 0;
+      	  
       }
 
-
-
-
-     
       //*** For 2.2.2 ***
       //Implement the flip() method.
       //Negates and swaps the xy-coordinates of this Point object.
       public void flip(){
+      	  //assigns temporary variable so x isn't overwritten 
       	  int temp = x;
       	  x = y *= -1;
       	  y = temp *= -1;

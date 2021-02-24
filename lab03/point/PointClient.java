@@ -1,13 +1,3 @@
-/*
- Lab 03
- 
- This client program uses Point objects.
- Expected output is:
- p0 is (0, 0)
- p1 is (8, 2)
- p2 is (4, 3)
- p1's distance from origin is 8.246211251235321
-*/
 
 public class PointClient {
      
@@ -106,7 +96,7 @@ public class PointClient {
           System.out.println("\n" + dist5 + ": 0 x, 0 y");
           System.out.println("Distance from origin: " + dist5.distanceFromOrigin());
           
-          System.out.println("\nThe only times this method will break are when (x * x + y * y) < 0 which is impossible");
+          System.out.println("\nThe only times distance method will break are when (x * x + y * y) < 0 which is impossible");
           System.out.println("and when (x * x + y * y) becomes too large to handle.");
           System.out.println("Realistically, I think this method is bulletproof");
           

@@ -1,0 +1,395 @@
+Aaron
+Abhorson
+Abraham
+Achilles
+Adam
+Adrian
+Adriano
+Aegeon
+Aemilius
+Aemilius Lepidus
+Aeneas
+Agamemnon
+Agrippa
+Ajax
+Alarbus
+Alcibiades
+Alexander
+Alexas
+Alonso
+Amiens
+Andrew Aguecheek (Sir)
+Angelo
+Angus
+Antenor
+Antigonus
+Antiochus
+Antipholus
+Antonio
+Antonio
+Apemantus
+Archidamus
+Ariel
+Aruiragus
+Autolucus
+Balthasar
+Balthazar
+Banquo
+Baptista
+Bardolph
+Barnardine
+Bassanio
+Bassanius
+Bassett
+Bates
+Belarius
+Benedick
+Benvolio
+Bernardo
+Berowne
+Biondello
+Borachio
+Bottom
+Boult
+Boyet
+Brabantio
+Brandon
+Butts (Dr.)
+Caithness
+Caius
+Caius (Dr.)
+Caius Lucius
+Caius Marcius
+Caliban
+Camillo
+Candidius
+Caphis
+Capucius
+Capulet
+Cassio
+Cato
+Cerimon
+Charles
+Chatillon
+Chiron
+Christophero Sly
+Cicero
+Clachas
+Claudio
+Claudius
+Cleomenes
+Cleon
+Clitus
+Cloten
+Cobweb
+Cominius
+Conrade
+Corin
+Cornelius
+Costard
+Court
+Cranmer
+Cromwell
+Cupid
+Curan
+Curio
+Curtis
+Cymbeline
+Decretas
+Deiphobus
+Demetrius
+Dennis
+Diomedes
+Dion
+Dogberry
+Dolabella
+Domitus Enobarbus
+Donalbain
+Dromio
+Dull
+Dumaine
+Duncan
+Durdanius
+Edgar
+Edmund
+Egeus
+Eglamour
+Elbow
+Eros
+Escalus
+Escanes
+Fabian
+Falstaff (Sir John)
+Fenton
+Ferdinand
+Feste
+Flavius
+Fleance
+Floritzel
+Fluellen
+Ford
+Fortinbras
+Francis (Friar)
+Francisco
+Frederick
+Froth
+Gallus
+Gonzalo
+Gower
+Grandpré
+Gratiano
+Gregory
+Gremio
+Griffith
+Grumio
+Guiderius
+Guildenstern
+Hamlet
+Hector
+Helenus
+Helicanus
+Holgernes
+Horatio
+Hortensio
+Hortensius
+Hugh Evans (Sir)
+Hymen
+Iachima
+Iago
+Jamy
+Jaques
+John (Don)
+John (Friar)
+Julius Caesar
+Junius Brutus
+Laertes
+Lartius
+Launce
+Launcelot Gobbo
+Laurence (Friar)
+Lear (King)
+LeBeau
+Lennox
+Leonardo
+Leonato
+Leonine
+Leontes
+Lodovico
+Longaville
+Lorenzo
+Lucentio
+Lucio
+Lucius
+Lucullus
+Lymoges
+Lysander
+Lysimachus
+Macbeth
+Macduff
+Macmorris
+Malvolio
+Mamillius
+Marcade
+Marcellus
+Marcus Andonicus
+Marcus Antonius
+Marcus Brutus
+Mardian
+Margarelon
+Mark Antony
+Martius
+Mecaenus
+Melun
+Menas
+Menecrates
+Menelaus
+Menenius Velutus
+Menteith
+Mercutio
+Messala
+Montague
+Montano
+Moth
+Mountjoy
+Mustardseed
+Mutius
+Nathaniel
+Nestor
+Nym
+Oberon
+Octavius
+Octavius Caesar
+Oliver Martext (Sir)
+Olivier
+Orlando
+Orsino
+Osric
+Oswald
+Othello
+Pandarus
+Panthino
+Paris
+Patroclus
+Peaseblossom
+Pedro (Don)
+Pericles
+Peter
+Peter (Friar)
+Petruchio
+Philario
+Philemon
+Philo
+Philostrate
+Philotus
+Pinch
+Pindarus
+Pisanio
+Pistol
+Polixenes
+Polonius
+Popilius Lena
+Posthumus Leonatus
+Priam
+Proculeius
+Prospero
+Proteus
+Publius
+Puck
+Quince
+Quintus
+Rambures
+Reynaldo
+Robin
+Robin Goodfellow (Puck)
+Roderigo
+Romeo
+Rosencrantz
+Ross
+Rugby
+Sampson
+Saturninus
+Scarus
+Sebastian
+Seleucus
+Sempronius
+Sextus Pompeius
+Seyton
+Shallow
+Shylock
+Silvius
+Simonides
+Simple
+Siward
+Slender
+Snout
+Snug
+Solanio
+Solinus
+Speed
+Starveling
+Stephano
+Strato
+Taurus
+Thaliard
+Thersites
+Theseus
+Thidias
+Thomas (Friar)
+Thomas Erpingham (Sir)
+Thurio
+Timon
+Titus
+Titus Andronicus
+Toby Belch (Toby)
+Touchstone
+Tranio
+Trinculo
+Tubal
+Tullus Aufidus
+Tybalt
+Ulysses
+Valentine
+Varrius
+Ventidius
+Verges
+Vernon
+Vincentio
+Voltimand
+William
+
+Adriana
+Aemilia
+Alice
+Andromache
+Anne Page
+Audrey
+Beatrice
+Bianca
+Calpurnia
+Cassandra
+Celia
+Ceres
+Charmian
+Cleopatra
+Constance
+Cordelia
+Cressida
+Desdemona
+Diana
+Dionyza
+Dorcas
+Emilia
+Francisca
+Gertrude
+Goneril
+Helen
+Helena
+Hermia
+Hermione
+Hero
+Hippolyta
+Imogen
+Iras
+Iris
+Isabella
+Jessica
+Julia
+Juliet
+Juno
+Katharina
+Lavinia
+Luce
+Lucetta
+Luciana
+Lychorinda
+Margaret
+Maria
+Mariana
+Marina
+Miranda
+Mopsa
+Nerissa
+Octavia
+Olivia
+Ophelia
+Patience
+Paulina
+Perdita
+Phebe
+Phrynia
+Portia
+Quickly (Mistress)
+Regan
+Rosalind
+Rosaline
+Silvia
+Tamora
+Thaisa
+Timandra
+Titania
+Ursula
+Valeria
+Viola
+Violenta
+Virgilia
+Volumnia

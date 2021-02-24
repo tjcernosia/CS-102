@@ -5,7 +5,7 @@
 */
 
 public class BankAccountClient {
-     
+	     
     //create a main method with test cases here!
     public static void main(String[] args){
     	// test: toString
@@ -28,6 +28,13 @@ public class BankAccountClient {
     	System.out.println("Test: no last name");
     	System.out.println("Name: Thomas");
     	System.out.println(noSpace + "\n\n");
+    	
+    	// test: name is null
+    	BankAccount nullAcc = new BankAccount(null);
+    	
+    	System.out.println("Test: name is null");
+    	System.out.println("Name: null");
+    	System.out.println(nullAcc + "\n\n");
     	
     	// test: negative min balance
     	BankAccount negativeMin = new BankAccount("Thomas Cernosia", -5);
@@ -113,6 +120,16 @@ public class BankAccountClient {
     	System.out.println(receiveBad);
     	System.out.println("Transfer amount: $100");
     	System.out.println("Transfer: " + sendBad.transferMoney(receiveBad, 100));
+    	System.out.println("Accounts after transfer: ");
+    	System.out.println(sendBad);
+    	System.out.println(receiveBad);
+    	
+    	System.out.println("\n\nTest: broken money transfer (negative amount)");
+    	System.out.println("Accounts before transfer: ");
+    	System.out.println(sendBad);
+    	System.out.println(receiveBad);
+    	System.out.println("Transfer amount: -$100");
+    	System.out.println("Transfer: " + sendBad.transferMoney(receiveBad, -100));
     	System.out.println("Accounts after transfer: ");
     	System.out.println(sendBad);
     	System.out.println(receiveBad);

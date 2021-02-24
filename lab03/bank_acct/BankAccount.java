@@ -19,11 +19,15 @@ public class BankAccount {
      	 this(name, MIN_BALANCE);
      }
      
+     public BankAccount(int min){
+     	this(DEFAULT_NAME, min);	 
+     }
+     
      public BankAccount(String name, int minBalance){
      	 //by default sets instance variable equal to argument
      	 this.name = name;
      	 //if name is too short or doesn't contain first and last name, overrides with default name
-     	 if (name.length() < MIN_LENGTH || !name.contains(" ")){
+     	 if (name == null || name.length() < MIN_LENGTH || !name.contains(" ")){
      	 	 this.name = DEFAULT_NAME;
      	 }
      	 this.minBalance = minBalance;
@@ -41,17 +45,14 @@ public class BankAccount {
           return true;
      }
 
-
-
      public boolean withdraw(double amount) {
+     	 
      	  if (balance - amount >= minBalance && amount > 0){
      	  	  balance -= amount;
      	  	  return true;
           }
           return false;
      }
-
-
 
      public double getBalance(){
        return balance;
