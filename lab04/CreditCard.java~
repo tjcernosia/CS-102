@@ -1,0 +1,39 @@
+import java.util.Calendar;
+import java.util.Random;
+
+
+public class CreditCard{
+
+
+    //use me for generating random numbers!
+    private static final Randon rand = new Random();
+
+
+
+
+
+
+
+
+
+
+
+     //***   Try us!  See what these methods' returned values look like!  ****
+     public static int getTodaysMonth(){
+          Calendar currentDate = Calendar.getInstance();
+          return currentDate.get(currentDate.MONTH) + 1;
+     }
+
+     public static int getTodaysYear(){
+          Calendar currentDate = Calendar.getInstance();
+          return currentDate.get(currentDate.YEAR);
+     }
+    //************************************************************************
+
+
+
+
+
+
+
+}
