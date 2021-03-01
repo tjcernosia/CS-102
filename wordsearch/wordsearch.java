@@ -3,32 +3,61 @@ import java.util.Scanner;
 import java.lang.Character;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.StringBuilder;
 
 public class wordsearch{
 	
 	public static final char[][] BOARD = createBoard();
 	public static final String SOURCE = "tsbncsebiaasnatldiquargaiopomfncesih";
 	public static final String LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	public static final String PROMPT = "Guess something";
+	public static final String PROMPT = "Which direction do you want to move: ";
 	private static final char STOP = '$';
+	public static final int NUMROW = 6;
+	public static final int NUMCOL = 6;
+	
+	public static Scanner console = new Scanner(System.in);
+	public static StringBuilder bld = new StringBuilder();
 	
 	private static final char[] KEYS = {'a', 'w', 'd', 'x', 'q', 'e', 'c', 'z'};
-    private static final int[] Y_DIR = { 0, -1, 0, 1, -1, 1, 1, -1};
-    private static final int[] X_DIR = {-1, 0, 1, 0, -1, -1, 1, 1};
+    private static final int[] X_DIR = { 0 ,  -1,  0 ,  1 , -1 , -1 ,  1 ,  1 };
+    private static final int[] Y_DIR = {-1 ,   0,   1,   0,  -1,  1 ,  1 , -1 };
+    
+    private static final String[] NAMES = {"bianca", "portia", "quince", "iago"};
 	
 	public static int x;
 	public static int y;
+	public static boolean gameOn = true;
 	public static char[][] displayBoard = createBoard();
-	public static String guess = "";
-	
-	public static Scanner console = new Scanner(System.in);
+	public static String guess = bld.toString();
 	
 	public static void main(String[] args) throws FileNotFoundException{
-		
+		//startup sequence
+		System.out.println("Welcome to my word search");
+		printBoard();
+		y = getCol();
+		x = getRow();
+		updateGuess();
+		updateDisplay();
+		printBoard();
+		//game loop
+		while(gameOn){
+			updateDisplay();
+			printBoard();
+			System.out.println("Letters so far: " + guess);
+			System.out.println("Cardinal Directions: a, w, d, x");
+			System.out.println("Diagonal directions: q, e, c, z");
+			System.out.println(PROMPT);
+			move();
+		}
+		//check to see if its contained within set of shakespeare names
+		if(checkGuess()){
+			System.out.println("Yes! " + guess + " is a Shakespeare name");	
+		}
+		else System.out.println("No! " + guess + " is not a Shakespeare name");
 	}
 	
 	private static char getChar() {
-        
+		
         if (console.hasNextLine()) {
             String line = console.nextLine().toUpperCase();
             return line.charAt(0);
@@ -37,34 +66,46 @@ public class wordsearch{
         return '?';
     }
     
-    private static int getCol(String prompt) {
-        System.out.println(prompt);
+    private static int getCol() {
+        System.out.println("Choose your starting column");
       
-        char letter = 'z';
+        char letter = 'Z';
         boolean inRange = false;
         
         while (console.hasNextLine() && !inRange) {
-            letter = getChar();
+            letter = Character.toUpperCase(getChar());
+            System.out.println(letter);
             System.out.println("You typed " + (char)letter);
-            if (letter >= 'A' && letter <='D') {
+            if (letter >= 'A' && letter <='F') {
                 inRange = true;
-            	System.out.println("In my range! goodbye");
             	break;
         	} else  {
                 System.out.println("Letter not in my arbitrary range, i.e. " 
                 	+ 'A' + " to "+  "D \ntry again...");
-                System.out.print(prompt);
+                System.out.print(PROMPT);
             }
         }
         return letter-'A';
     }   
 	
-	public static int getInt(){
-		return 0;	
+	public static int getRow(){
+		System.out.println("Choose your starting row");
+		boolean inRange = false;
+		int row = 100;
+		
+		while(console.hasNextInt() && !inRange){
+			row = console.nextInt();
+			if(row >= 0 && row < BOARD.length){
+				return row;	
+			} else {
+				System.out.println("Out of range: guess again"); 
+			}
+		}
+		return -1;	
 	}
 	
-	public static char[][] createBoard(){
-		/*
+	public static char[][] createBoard() {
+		
 		//create new map of correct dimensions
 		char[][] map = new char[NUMROW][NUMCOL];
 		
@@ -75,16 +116,7 @@ public class wordsearch{
 			}
 		}
 		return map; 
-		*/
-		Scanner input = new Scanner(new File("grid.txt"));
-		int numRows = 0;
-		int numCol = input.next().toCharArray().length;
 		
-		for(; input.hasNextLine(); input.nextLine()){
-			numRows++;
-		}
-		
-		return new char[1][1];
 	}
 	
 	// prints out the board with sidebars
@@ -115,19 +147,52 @@ public class wordsearch{
 	
 	// appends BOARD[x][y] to String guess
 	public static void updateGuess(){
-		guess += BOARD[x][y];	
+		bld.append(BOARD[x][y]);
+		guess = bld.toString();
 	}
 	
-	// returns boolean so we can use its return to see if the move has failed
-	public static boolean move(char m){
-		//pre-process to make sure char is lowercase
-		m = Character.toLowerCase(m);
+	public static boolean checkMove(char m){
+		for(int i = 0; i < KEYS.length; i++){
+			if(KEYS[i] == m){
+				if(x + X_DIR[i] < 0 || x + X_DIR[i] > BOARD.length) return false;
+				if(y + Y_DIR[i] < 0 || y + Y_DIR[i] > BOARD.length) return false;
+			}
+		}
+		return true;
+	}
+	
+	public static boolean checkGuess(){
+		//loop through array of shakespeare names and return true if you find one that matches guess
+		for(int i = 0; i < NAMES.length; i++){
+			if (NAMES[i].equals(guess)) return true;
+		}
+		return false;
+	}
+	
+	public static boolean move(){
+		//for some reason it crashes if I dont have this line but it makes it so that i have to enter your move twice for it to go through
+		console.nextLine();
 		
-		return true;
-	}
-	
-	public static boolean checkMove(){
-		return true;
+		char m = 'z';
+		m = getChar();
+		boolean validMove = checkMove(m);
+		
+		//check to see if you should end the game
+		if(m == '$'){
+			gameOn = false;
+			return false;
+		}
+		
+		//find char in move list and move x and y corresponding values
+		for(int i = 0; i < KEYS.length; i++){
+			if(KEYS[i] == Character.toLowerCase(m)){
+				x += X_DIR[i];
+				y += Y_DIR[i];
+				updateGuess();
+				return true;
+			}
+		}
+		return false;
 	}
 	
 }

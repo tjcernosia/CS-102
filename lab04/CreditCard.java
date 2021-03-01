@@ -87,7 +87,7 @@ public class CreditCard{
     public void extendExpiration(int months){
     	if(0 < months){
     		expirationMonth += months % 12;
-    		expirationYear += months % 12;
+    		expirationYear += months / 12;
     	}
     }
     
