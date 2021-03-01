@@ -7,6 +7,12 @@ import java.lang.StringBuilder;
 
 public class wordsearch{
 	
+	//*************PLEASE READ*************
+	//In my move() function I included a console.nextLine() statement. 
+	//for some reason that I haven't figured out, i get a runtime error every time without it
+	//because of this you have to type in your move twice before it registers
+	//besides this, the game can be played
+	
 	public static final char[][] BOARD = createBoard();
 	public static final String SOURCE = "tsbncsebiaasnatldiquargaiopomfncesih";
 	public static final String LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -19,8 +25,8 @@ public class wordsearch{
 	public static StringBuilder bld = new StringBuilder();
 	
 	private static final char[] KEYS = {'a', 'w', 'd', 'x', 'q', 'e', 'c', 'z'};
-    private static final int[] Y_DIR = { 0, -1, 0, 1, -1, 1, 1, -1};
-    private static final int[] X_DIR = {-1, 0, 1, 0, -1, -1, 1, 1};
+    private static final int[] X_DIR = { 0 ,  -1,  0 ,  1 , -1 , -1 ,  1 ,  1 };
+    private static final int[] Y_DIR = {-1 ,   0,   1,   0,  -1,  1 ,  1 , -1 };
     
     private static final String[] NAMES = {"bianca", "portia", "quince", "iago"};
 	
@@ -31,6 +37,7 @@ public class wordsearch{
 	public static String guess = bld.toString();
 	
 	public static void main(String[] args) throws FileNotFoundException{
+		//startup sequence
 		System.out.println("Welcome to my word search");
 		printBoard();
 		y = getCol();
@@ -38,18 +45,25 @@ public class wordsearch{
 		updateGuess();
 		updateDisplay();
 		printBoard();
-		
-		while (gameOn){
+		//game loop
+		while(gameOn){
+			updateDisplay();
+			printBoard();
 			System.out.println("Letters so far: " + guess);
 			System.out.println("Cardinal Directions: a, w, d, x");
 			System.out.println("Diagonal directions: q, e, c, z");
 			System.out.println(PROMPT);
 			move();
 		}
+		//check to see if its contained within set of shakespeare names
+		if(checkGuess()){
+			System.out.println("Yes! " + guess + " is a Shakespeare name");	
+		}
+		else System.out.println("No! " + guess + " is not a Shakespeare name");
 	}
 	
 	private static char getChar() {
-        
+		
         if (console.hasNextLine()) {
             String line = console.nextLine().toUpperCase();
             return line.charAt(0);
@@ -154,6 +168,7 @@ public class wordsearch{
 	}
 	
 	public static boolean checkGuess(){
+		//loop through array of shakespeare names and return true if you find one that matches guess
 		for(int i = 0; i < NAMES.length; i++){
 			if (NAMES[i].equals(guess)) return true;
 		}
@@ -161,9 +176,14 @@ public class wordsearch{
 	}
 	
 	public static boolean move(){
-		char m = 'q';
-		//boolean validMove = checkMove(m);
+		//for some reason it crashes if I dont have this line but it makes it so that i have to enter your move twice for it to go through
+		console.nextLine();
 		
+		char m = 'z';
+		m = getChar();
+		boolean validMove = checkMove(m);
+		
+		//check to see if you should end the game
 		if(m == '$'){
 			gameOn = false;
 			return false;
@@ -171,13 +191,13 @@ public class wordsearch{
 		
 		//find char in move list and move x and y corresponding values
 		for(int i = 0; i < KEYS.length; i++){
-			if(KEYS[i] == m){
+			if(KEYS[i] == Character.toLowerCase(m)){
 				x += X_DIR[i];
 				y += Y_DIR[i];
+				updateGuess();
 				return true;
 			}
 		}
-		gameOn = false;
 		return false;
 	}
 	

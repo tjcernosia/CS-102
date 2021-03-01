@@ -7,6 +7,12 @@ import java.lang.StringBuilder;
 
 public class wordsearch{
 	
+	//*************PLEASE READ*************
+	//In my move() function I included a console.nextLine() statement. 
+	//for some reason that I haven't figured out, i get a runtime error every time without it
+	//because of this you have to type in your move twice before it registers
+	//besides this, the game can be played
+	
 	public static final char[][] BOARD = createBoard();
 	public static final String SOURCE = "tsbncsebiaasnatldiquargaiopomfncesih";
 	public static final String LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -59,7 +65,7 @@ public class wordsearch{
 	private static char getChar() {
 		
         if (console.hasNextLine()) {
-            String line = console.nextLine().toUpperCase();
+            String line = console.next().toUpperCase();
             return line.charAt(0);
         }
         
@@ -170,10 +176,8 @@ public class wordsearch{
 	}
 	
 	public static boolean move(){
-		//for some reason it crashes if I dont have this line but it makes it so that i have to enter your move twice for it to go through
-		console.nextLine();
 		
-		char m = 'z';
+		char m = 's';
 		m = getChar();
 		boolean validMove = checkMove(m);
 		
