@@ -4,19 +4,15 @@ import java.lang.Character;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.StringBuilder;
+import java.util.ArrayList;
 
 public class wordsearch{
 	
-	//*************PLEASE READ*************
-	//In my move() function I included a console.nextLine() statement. 
-	//for some reason that I haven't figured out, i get a runtime error every time without it
-	//because of this you have to type in your move twice before it registers
-	//besides this, the game can be played
-	
-	public static final char[][] BOARD = createBoard();
+	public static final char[][] BOARD = readBoard();
 	public static final String SOURCE = "tsbncsebiaasnatldiquargaiopomfncesih";
 	public static final String LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	public static final String PROMPT = "Which direction do you want to move: ";
+	private static final String[] NAMES = readNames();
 	private static final char STOP = '$';
 	public static final int NUMROW = 6;
 	public static final int NUMCOL = 6;
@@ -27,16 +23,18 @@ public class wordsearch{
 	private static final char[] KEYS = {'a', 'w', 'd', 'x', 'q', 'e', 'c', 'z'};
     private static final int[] X_DIR = { 0 ,  -1,  0 ,  1 , -1 , -1 ,  1 ,  1 };
     private static final int[] Y_DIR = {-1 ,   0,   1,   0,  -1,  1 ,  1 , -1 };
-    
-    private static final String[] NAMES = {"bianca", "portia", "quince", "iago"};
 	
 	public static int x;
 	public static int y;
 	public static boolean gameOn = true;
-	public static char[][] displayBoard = createBoard();
+	public static char[][] displayBoard = readBoard();
 	public static String guess = bld.toString();
 	
 	public static void main(String[] args) throws FileNotFoundException{
+		for(String o: NAMES){
+			System.out.println(o);
+		}
+		/*
 		//startup sequence
 		System.out.println("Welcome to my word search");
 		printBoard();
@@ -60,6 +58,7 @@ public class wordsearch{
 			System.out.println("Yes! " + guess + " is a Shakespeare name");	
 		}
 		else System.out.println("No! " + guess + " is not a Shakespeare name");
+		*/
 	}
 	
 	private static char getChar() {
@@ -110,6 +109,7 @@ public class wordsearch{
 		return -1;	
 	}
 	
+	//old method to create the board
 	public static char[][] createBoard() {
 		
 		//create new map of correct dimensions
@@ -125,14 +125,49 @@ public class wordsearch{
 		
 	}
 	
+	//read from file
+	public static char[][] readBoard(){
+		try{
+			File data = new File("grid.txt");
+			Scanner input = new Scanner(data);
+			char[][] board = new char[12][11];
+			
+			for(int i = 0; i < board.length; i++){
+				board[i] = input.nextLine().toCharArray();
+			}
+			
+			return board;
+		}
+		catch (FileNotFoundException e){
+			return new char[0][0];
+		}
+	}
+	
+	public static String[] readNames(){
+		try{
+			File data = new File("names.txt");
+			Scanner input = new Scanner(data);
+			ArrayList<String> names = new ArrayList<String>();
+			
+			while (input.hasNextLine()){
+				names.add(input.nextLine());
+			}
+			
+			return names.toArray(new String[names.size()]);
+		} catch(FileNotFoundException e){
+			return new String[0];
+		}
+	}
+	
 	// prints out the board with sidebars
 	public static void printBoard(){
 		//print out letters at top of word search
-		System.out.println("  " + LETTERS.substring(0,BOARD.length));
+		System.out.println("  " + LETTERS.substring(0,BOARD.length-1));
 		
 		for(int r = 0; r < BOARD.length; r++){
 			//print out row number and appropriate space
-			System.out.print(r + " ");
+			if(r < 10) System.out.print(r + "  ");
+			else System.out.print(r + " ");
 			//print out row
 			for(int c = 0; c < BOARD[0].length; c++){
 				System.out.print(displayBoard[r][c]);
